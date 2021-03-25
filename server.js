@@ -6,8 +6,11 @@ const app = express()
 // Connect to Database
 connectDB()
 
-app.get('/', (req,res) => res.json({ 
-    msg: 'Welcome to Contact Keeper API' }))
+// Init Middleware - Body Parser
+//In order to accept data e.g req.body you must use..
+app.use(express.json())
+
+app.get('/', (req,res) => res.json({ msg: 'Welcome to Contact Keeper API' }))
 
 // Define Routes
 app.use('/api/users', require('./routes/users'))
