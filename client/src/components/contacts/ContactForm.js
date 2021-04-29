@@ -30,7 +30,8 @@ const ContactForm = () => {
 
     // computed propery name syntax ES6
     const onChange = e => {
-        return setContact({ ...contact, [e.target.name]:e.target.value })
+         setContact({ ...contact, [e.target.name]:e.target.value })
+         return
     }
 
     const onSubmit = e => {
@@ -40,13 +41,7 @@ const ContactForm = () => {
         } else {
             updateContact(contact)
         }
-
-        setContact({
-            name:'',
-            email:'',
-            phone:'',
-            type:'personal'
-        })
+        clearAll()
     }
 
     const clearAll = () => {
